@@ -1,0 +1,168 @@
+/*
+Theme Name:     FCC 2015
+Theme URI:      http://www.onthegosystems.com/
+Description:    Child theme for the Toolset Bootstrap theme
+Author:         Benny Ying
+Author URI:     http: //bluecurrentgroup.com/
+Template:       toolset-bootstrap
+Version:        0.1.0
+*/
+@import url("../toolset-bootstrap/style.css");
+/*body{background: #5c5c5c;}*/
+/*Genaral*/
+@media (max-width: 650px) {
+	#front_top_slider .slider_box .slider_image img{width:1024px; height: 399px; }
+	#front_top_slider .slider_box .slider_text .slider_title{ font-size: 20px !important;}
+}
+@media (max-width: 750px) {
+	#top_search{clear: both;}
+}
+@media (max-width: 767px) {
+	#front_map { height: 200px !important; }
+	#front_map #huge_it_google_map1_container { margin-top: 20px !important; }
+	#front_map #huge_it_google_map1 { height: 200px !important; }
+	#front_map > a{top: 1px !important;}
+}
+@media (min-width: 800px) {
+	.container{width: 750px;}
+}
+@media (min-width: 767px) and (max-width: 999px) {
+	#front_map #huge_it_google_map1 { height: 112px !important; }
+}
+@media (min-width: 1000px){.container{width: 960px;}}
+@media (min-width: 1200px){.container{width:1024px;}}
+/*.row{margin:0;}
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{padding: 0;}*/
+html{min-width: 450px;}
+body{margin-bottom: 30px;}
+.nav-single { display: none; }
+.container > .container{background: #fff;}
+.container > .container:nth-child(3){height: 50px;}
+
+/*Header Top*/
+#header_top{min-height: 45px;}
+
+#top_socialmedia .widget > div{float: right; height: 45px; padding: 7px 0;}
+#top_socialmedia .widget > div a{margin-bottom: 0 !important;}
+
+#top_search{float: right;}
+#top_search .widget{}
+#top_search .input-group{height: 19px; padding: 13px 0 0;}
+#top_search .input-group input.form-control{display: block; height: 19px; padding: 0 10px; border-radius: 0; }
+#top_search .input-group input#searchsubmit{ text-indent: -999px; border: none; box-shadow: none; margin-left: 10px; background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/09/search-icon-hi_edit_19.png") no-repeat; width: 29px;}
+
+/*Header Banner*/
+#header_banner{height: 113px;}
+.home_url{vertical-align: middle; height: 113px; display: table-cell; padding-left:15%; background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/bg_submenu_o.png");}
+
+/*Top Menu*/
+/*.container > .container:nth-child(3){height: 40px;}*/
+#header_menu{position: relative; z-index: 200; background: #fdc716;}
+#header_menu .col-sm-12{padding: 0;}
+#header_menu z{margin: 0 auto; width: 100%; border: none; min-height:50px; height: 50px;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse{width: 100%; margin: 0 !important; padding: 0;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul{width: 100%; position: relative; z-index: 100;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li{/*background: #fdc716;*/ width: 16.6667%; /* fallback for non-calc() browsers */ width: calc(100% / 7);}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li:hover > a{background: #034663;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li.open > a{background: #034663;}
+/*#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li#menu-item-107{width: 17.5%;}*/
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li a{ display: block; vertical-align: middle; height: 50px; color: #fff; text-align: center; padding: 15px 5px; min-width:130px; width: 100%;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li#menu-item-105{padding-right: 1px;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li#menu-item-105 a{display: table-cell; padding: 0;}
+
+/*Second Layer*/
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu{padding: 0; border: none; background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/bg-submenu.png");}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu > li{width: 100%;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu > li a{ text-align: right; padding: 10px 10px 10px 0; white-space: normal; height: inherit;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu > li:hover a{background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/bg_submenu_o.png");}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul li#menu-item-105 ul.ddl-dropdown-menu > li a{display: block; padding: 10px 10px 10px 0;}
+
+/*Thrid Layer*/
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu ul.ddl-dropdown-menu{ top: -40px !important; border-top-left-radius: 0; border-bottom-left-radius: 0;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu ul.ddl-dropdown-menu > li{}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu ul.ddl-dropdown-menu > li a{background: none;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu ul.ddl-dropdown-menu > li:hover a{background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/bg_submenu_o.png");}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse ul.ddl-dropdown-menu ul.ddl-dropdown-menu > li#menu-item-128{height: 40px !important;}
+
+/*Responsive */
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in{overflow: initial; position: relative; top: 50px;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in > ul{background: #034663;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in ul li{width: 100%; background: #034663 !important; }
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in ul li a,
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in ul li#menu-item-105 a{width: 100%; text-align: left; padding: 15px;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in ul.ddl-dropdown-menu{margin-left: 0px !important; background: none; padding: 0 15px;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in ul li#menu-item-105 ul.ddl-dropdown-menu > li a{ padding: 15px;}
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in ul.ddl-dropdown-menu ul.ddl-dropdown-menu{ top: 1px !important; }
+#header_menu nav.ddl-nav-wrap .ddl-navbar-collapse.in ul.ddl-dropdown-menu ul.ddl-dropdown-menu #menu-item-128{height: 40px!important;}
+
+
+
+/*Front Block*/
+#content_home{}
+/**Top Slider*/
+#home_top{}
+
+#front_top_slider{padding: 0; margin-bottom: 30px}
+#front_top_slider #wpv-view-layout-77-CPID79{position: relative !important;}
+#front_top_slider .slider_box{position: relative; height:399px}
+#front_top_slider .slider_box .slider_image{position: absolute; width: 100%; height: 399px; overflow: hidden;}
+#front_top_slider .slider_box .slider_image img{width: 100%;}
+#front_top_slider .slider_box .slider_text{position: absolute; bottom: 0px; width: 100%;
+    height: 140px; background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/bg-submenu.png"); padding: 25px 0;}
+#front_top_slider .slider_box .slider_text .slider_categories{ font-size: 25px; color: #fff; width: 100%; text-align: center;}
+#front_top_slider .slider_box .slider_text .slider_title{ font-size: 25px; color: #fff; width: 90%; margin: 0 auto; text-align: center; font-weight: lighter;}
+
+#front_top_slider .slider_pager{position: absolute; bottom: 0; width: 100%;}
+#front_top_slider .slider_pager .slider_prev{position: absolute; left: 10px; bottom: 60px;}
+#front_top_slider .slider_pager .slider_prev a{display: block; width: 17px; height: 29px; background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/arror_prev.png") no-repeat; text-indent: -9999px;}
+#front_top_slider .slider_pager .slider_next{position: absolute; right: 10px; bottom: 60px;}
+#front_top_slider .slider_pager .slider_next a{display: block; width: 17px; height: 29px; background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/arror_next.png") no-repeat; text-indent: -9999px;}
+
+#front_top_slider .slider_pager .wpv_pagination_links{display: block; width: 100%; position: absolute; bottom: -25px;}
+#front_top_slider .slider_pager .wpv_pagination_links ul{ width: 150px; margin: 0 auto; display: block;}
+#front_top_slider .slider_pager .wpv_pagination_links ul li a{display: block; width: 15px; height: 15px; background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/bullet_blue.png") right no-repeat; }
+#front_top_slider .slider_pager .wpv_pagination_links ul li.wpv_page_current a{background: url("http://project.bluecurrentgroup.com/fcc/dev/wp-content/uploads/2015/10/bullet_blue.png") left no-repeat; }
+
+
+#home_middle_top{padding-bottom: 50px;}
+/*Club Statements*/
+#front_club_block{position: relative; height: 292px;}
+#front_club_block .club_title{height: 47px;}
+#front_club_block .club_body{height: 245px !important; background: #e7e7e7; padding: 21px 15px 21px 15px; overflow: auto;}
+#front_club_block .club_body ul{padding: 0;}
+#front_club_block .club_body ul li{list-style: none; padding: 11px 0;}
+#front_club_block .club_body ul li a{}
+
+/*Front Google Map*/
+#front_map{position: relative; height: 160px;}
+#front_map #huge_it_google_map1_container{margin-top: 47px; position: relative;}
+#huge_it_google_map1{height: 112px !important;}
+#front_map > a{position: absolute; top: 11px; left: 16px; padding: 4px 8px; background-color: #fff;}
+
+/*Call Reservation*/
+#call_ref{ position: relative; height: 292px; padding-top: 47px;}
+#call_ref .call_title{}
+#call_ref .call_body{height: 185px;}
+#call_ref .call_body .call_gm{}
+#call_ref .call_body .call_num{}
+#call_ref .call_body .call_address{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
