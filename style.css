@@ -19,14 +19,26 @@ Version:        0.1.0
 	outline: none;
 }
 
+.gallery:before,
+.gallery:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.gallery:after {
+  clear: both;
+}
+
 
 /*body{background: #5c5c5c;}*/
-/*Genaral*/
+/*General*/
 
 @media (min-width:300px) and (max-width: 800px) {
 	#mega-menu-wrap-header-menu .mega-menu-toggle.mega-menu-open + #mega-menu-header-menu{ height: initial; background: #fdc716; position: absolute; top: 50px; z-index: 200;}
 	#mega-menu-wrap-header-menu .mega-menu-toggle.mega-menu-open + #mega-menu-header-menu > li.mega-menu-item{width: 100%;}
-	#mega-menu-wrap-header-menu .mega-menu-toggle.mega-menu-open + #mega-menu-header-menu > li.mega-menu-item a {text-align: center !important;}
+	#mega-menu-wrap-header-menu .mega-menu-toggle.mega-menu-open + #mega-menu-header-menu > li.mega-menu-item a {text-align: center !important; font-size: 22px;}
+	#mega-menu-header-menu > li.mega-menu-item > ul.mega-sub-menu li.mega-menu-item > a.mega-menu-link {text-align: center !important; font-size: 18px !important;}
 	#front_top_slider .slider_box .slider_image img.youtube_image{ top: -40px !important;}
 }
 
@@ -76,6 +88,7 @@ Version:        0.1.0
 
 	.owl_topitem a .slider_image img{ min-width: 170% !important; min-height: 100% !important; }
 
+	.book_feature { height: auto !important; }
 }
 
 @media (min-width: 800px) {.container{width: 750px;}}
@@ -887,7 +900,7 @@ th.headerSortUp {
 #mag_feature .story_box .story_item .item_more{ float: left; display: block; width: 100%;}
 #mag_feature .story_box .story_item .item_more a{ display: block; float: right; width: 30%; height: 30px; border: 1px solid #2ca8df; line-height: 30px; font-size: 16px; color: #2ca8df; text-align: center;}
 
-#mag_story, #club_news_story{ padding-bottom: 21px; /*border-bottom: 1px solid #b6b6b8;*/ margin: 20px 0 0 15px; width: 95%; padding-left: 0px; padding-top: 20px;}
+#mag_story, #club_news_story{ padding-bottom: 21px; /*border-bottom: 1px solid #b6b6b8;*/ margin: 20px 0 0 15px; width: 95%; padding-left: 0px; padding-top: 0px;}
 #mag_story .story_box, #club_news_story .story_box{ width: 100%; padding-bottom: 25px; /*overflow-y: auto;*/ display: block; max-height: 900px;}
 
 #mag_story .story_box .story_item, #club_news_story .story_box .story_item{ width: 100%; padding-bottom: 25px; display: block; float: left;}
@@ -1213,4 +1226,36 @@ th.headerSortUp {
 	width: 180px;
 	margin-right: 10px;
 	padding: 10px;
+}
+
+
+#related-stories ul {
+        clear: both;
+        padding: 0px;
+}
+#related-stories ul li {
+        list-style: none;
+        margin: 10px 10px 20px;
+}
+#related-stories .wp-post-image {
+        float: left;
+        margin: 0 10px 10px 0;
+}
+
+
+
+/**
+ * New and Improved Clearfix 
+ *   see: https://css-tricks.com/snippets/css/clear-fix/
+ */
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+} 
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
