@@ -255,6 +255,7 @@ function wpbootstrap_gallery($content, $attr) {
 add_filter('post_gallery', 'wpbootstrap_gallery', 100, 2);
 
 /**
+<<<<<<< HEAD
  * Make WP Captions responsive
  */
 function dap_responsive_img_caption_filter( $val, $attr, $content = null ) {
@@ -279,3 +280,33 @@ function dap_responsive_img_caption_filter( $val, $attr, $content = null ) {
     return $new_caption;
 }
 //add_filter( 'img_caption_shortcode', 'dap_responsive_img_caption_filter', 10, 3 );
+=======
+ * This function will take the first image attached to a post and assign it as the featured image, if one does not already exist
+ * 
+ * If you use the_post action, it will do this every time a page is accessed. This should be temporarily set
+ */ 
+function auto_featured_image() {
+    global $post;
+ 
+    //error_log('testing for featured image: '.$post->ID.' '.print_r(get_post_thumbnail_id( $post ),TRUE));
+
+    if (!has_post_thumbnail($post->ID) OR '1170' == get_post_thumbnail_id($post->ID)) {
+        $attached_image = get_children( "post_parent=$post->ID&amp;post_type=attachment&amp;post_mime_type=image&amp;numberposts=1" );
+         
+      if ($attached_image) {
+              foreach ($attached_image as $attachment_id => $attachment) {
+                   set_post_thumbnail($post->ID, $attachment_id);
+                   break;
+              }
+         }
+    }
+}
+// Use it temporary to generate all featured images
+//add_action('the_post', 'auto_featured_image');
+// Used for new posts
+//add_action('save_post', 'auto_featured_image');
+//add_action('draft_to_publish', 'auto_featured_image');
+//add_action('new_to_publish', 'auto_featured_image');
+//add_action('pending_to_publish', 'auto_featured_image');
+//add_action('future_to_publish', 'auto_featured_image');
+>>>>>>> 96939aba27186675783ba7b6d9ec49f83f165a65
