@@ -32,17 +32,22 @@ jQuery(document).ready(function($) {
 
     /*$(window).resize(function(){location.reload();});*/
 
-    if($('body').hasClass('desktop')){
-        $(window).resize(function(){location.reload();});
-    }
+    // if($('body').hasClass('desktop')){
+    //     $(window).resize(function(){location.reload();});
+    // }
 
-    if ($('body').hasClass('iphone')) {
-        // do stuff
-        //console.log("iso mobile");
-        $('meta[name=viewport]').attr('content','width=device-width, initial-scale=0.70');
-    }else{
-        $('meta[name=viewport]').attr('content','width=device-width, initial-scale=1.0');
-    }
+
+    /** Uses mobble */
+
+    // if ($('body').hasClass('iphone')) {
+    //     // do stuff
+    //     //console.log("iso mobile");
+    //     $('meta[name=viewport]').attr('content','width=device-width, initial-scale=0.70');
+    // } else {
+    //     $('meta[name=viewport]').attr('content','width=device-width, initial-scale=1.0');
+    // }
+
+
 
     $('#copyright p span').append((new Date).getFullYear());
 
@@ -52,9 +57,11 @@ jQuery(document).ready(function($) {
     $('#post_content h1.Press.Freedom').parent(".col-sm-12").children("img.wp-post-image").css("display", "none");
     $('#post_content h1.Our.Facilities').parent(".col-sm-12").children("img.wp-post-image").css("display", "none");
 
-$(".page-id-491 #event-categories option[value='155']").remove();
+    $(".page-id-491 #event-categories option[value='155']").remove();
 
-    /*Committee Slide*/
+
+    /* Committee Slide */
+
     $('.committee_dropdown .list-group .group-header a').on('click', function(){
         /*$(".committee_dropdown .list-group").find('.group-body').slideToggle(300).removeClass('active');*/
         $(this).parent().parent().parent().toggleClass('active').find('.group-body').slideToggle(300);
@@ -63,29 +70,31 @@ $(".page-id-491 #event-categories option[value='155']").remove();
     $('.committee_dropdown .list-group:first-child').addClass('active');
     $('.committee_dropdown .list-group:first-child .group-body').css("display","block");
 
-    /*Partner Clubs Table*/
-    $('.list_table').cardtable();
-    $("#club_table").tablesorter();
-    $("#cj_table").tablesorter();
 
-    $("#partner_clubs").prepend('<form id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="30" type="text"></form><br>');
+    /* Partner Clubs Table */
 
-    var PCTable = $('#club_table');
-    $("#filter").keyup(function() {
-        $.uiTableFilter( PCTable, this.value );
-    })
+    // $('.list_table').cardtable();
+    // $("#club_table").tablesorter();
+    // $("#cj_table").tablesorter();
 
-    $("#cj_directory").prepend('<form id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="30" type="text"></form><br>');
+    // $("#partner_clubs").prepend('<form id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="30" type="text"></form><br>');
 
-    var CJTable = $('#cj_table');
-    $("#filter").keyup(function() {
-        $.uiTableFilter( CJTable, this.value );
-    })
+    // var PCTable = $('#club_table');
+    // $("#filter").keyup(function() {
+    //     $.uiTableFilter( PCTable, this.value );
+    // })
+
+    // $("#cj_directory").prepend('<form id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="30" type="text"></form><br>');
+
+    // var CJTable = $('#cj_table');
+    // $("#filter").keyup(function() {
+    //     $.uiTableFilter( CJTable, this.value );
+    // })
 
 
 
-    /**/
-    /*Other List*/
+    /* Other List */
+
     $('.contactus_list .list-group .group-header a').on('click', function(){
         $(this).parent().parent().parent().toggleClass('active').find('.group-body').slideToggle(300);
     })
@@ -106,6 +115,9 @@ $(".page-id-491 #event-categories option[value='155']").remove();
         //console.log(getLastPartOfUrl(file_url));
         $(this).text(getLastPartOfUrl(file_url));
     });
+
+
+    /* Homepage Carousel / Slider */
 
     $('#top_owlslide .owl-carousel').children("div.form_holder").remove();
 
@@ -187,97 +199,180 @@ $(".page-id-491 #event-categories option[value='155']").remove();
     /*$('#top_owlslide .owl-carousel .owl-stage-outer .owl-stage .owl-item').children("div.form_holder").parent().remove();*/
 
 
-/*Event Gallery Start*/
+    /* Event Gallery Start */
+
     if($(".single-event .col-sm-12 div").hasClass("galleria")){
-            Galleria.loadTheme('../../wp-content/themes/fcc_2015/js/classic/galleria.classic.min.js');
+        Galleria.loadTheme('../../wp-content/themes/fcc_2015/js/classic/galleria.classic.min.js');
 
-Galleria.configure({
-    transition: 'fade',
-    imageCrop: true,
-    lightbox: true
-});
+        Galleria.configure({
+            transition: 'fade',
+            imageCrop: true,
+            lightbox: true
+        });
 
-            Galleria.run('.galleria');
+        Galleria.run('.galleria');
     };
-/*Event Gallery End*/
 
-$( ".dialog" ).click(function(){        
-        $('#dialog').html($(this).html());
-        $('#dialog').css("display", "block");
-        $('#fade').css("display","block");
+    /* Event Gallery End */
+
+
+
+    $( ".dialog" ).click(function(){        
+            $('#dialog').html($(this).html());
+            $('#dialog').css("display", "block");
+            $('#fade').css("display","block");
+        });
+    $("#fade").click(function(){
+        $('#dialog').css("display", "none");
+        $('#fade').css("display", "none");
     });
-$("#fade").click(function(){
-    $('#dialog').css("display", "none");
-    $('#fade').css("display", "none");
-});
 
 
-$('.single-post.postid-299 .post_body').jPaginate({
-            items: 10,
-            minimize: false,
-            nav_items: 6,
-            cookies: true,
-            position: "after",
-            equal: false,
-            offset: 50
-});
-
-/*Club news Archives group by year.*/
-var archives_array = new Array;
-var archive_li_list = $('.post-type-archive-club-news #archives_clubnews ul li');
-var archive_wrapper = $('.post-type-archive-club-news #archives_clubnews ul');
-
-archive_li_list.each(function(index, value) {
-    archives_link = $(this).find('a');
-    var text = $(this).text();
-    var link = archives_link.attr("href");
-
-    var ret = text.split(" ");
-    var str_month = ret[0];
-    var ret2 = ret[1].toString().split("(");
-    var str_count = "(" + ret2[1];
-    var str_year = ret2[0];
-
-    var list_index = index + 1;
-
-    //console.log("Index: " + list_index + ", Month: " + str_month + ", Year: " + str_year + ", Count: " + str_count + ", URL: " + link + "<br/>");
-
-    archives_array.push({"year" : str_year, "month" : str_month, "count" : str_count, "url" : link});
-});
-
-/*rerange array by Year.*/
-if (archives_array.length != 0){
-    //console.log("This array is full");
-
-    //$("#test").dump(archives_array);
-    by_year = _.groupBy(archives_array, function(obj) { return obj['year'] });
-    //$("#test").dump(by_year);
-
-    var new_menu = "";
-    $.each(by_year, function(i, yearlist){
-        //console.log(i);
-        new_menu += "<li><span>" + i + "</span>";
-            new_menu += "<ul>";
-            $.each(yearlist, function(j, value){
-                new_menu += "<li><a href='"+value['url']+"'>"+value['month']+"</a>&nbsp;"+value['count']+"</li>";
-            });
-            new_menu += "</ul>";
-        new_menu += "</li>";
+    $('.single-post.postid-299 .post_body').jPaginate({
+                items: 10,
+                minimize: false,
+                nav_items: 6,
+                cookies: true,
+                position: "after",
+                equal: false,
+                offset: 50
     });
-    archive_wrapper.empty().append(new_menu);
-}
+
+    /* Club news Archives group by year */
+
+    var archives_array = new Array;
+    var archive_li_list = $('.post-type-archive-club-news #archives_clubnews ul li');
+    var archive_wrapper = $('.post-type-archive-club-news #archives_clubnews ul');
+
+    archive_li_list.each(function(index, value) {
+        archives_link = $(this).find('a');
+        var text = $(this).text();
+        var link = archives_link.attr("href");
+
+        var ret = text.split(" ");
+        var str_month = ret[0];
+        var ret2 = ret[1].toString().split("(");
+        var str_count = "(" + ret2[1];
+        var str_year = ret2[0];
+
+        var list_index = index + 1;
+
+        //console.log("Index: " + list_index + ", Month: " + str_month + ", Year: " + str_year + ", Count: " + str_count + ", URL: " + link + "<br/>");
+
+        archives_array.push({"year" : str_year, "month" : str_month, "count" : str_count, "url" : link});
+    });
+
+    /* rearrange array by Year */
+
+    if (archives_array.length != 0){
+        //console.log("This array is full");
+
+        //$("#test").dump(archives_array);
+        by_year = _.groupBy(archives_array, function(obj) { return obj['year'] });
+        //$("#test").dump(by_year);
+
+        var new_menu = "";
+        $.each(by_year, function(i, yearlist){
+            //console.log(i);
+            new_menu += "<li><span>" + i + "</span>";
+                new_menu += "<ul>";
+                $.each(yearlist, function(j, value){
+                    new_menu += "<li><a href='"+value['url']+"'>"+value['month']+"</a>&nbsp;"+value['count']+"</li>";
+                });
+                new_menu += "</ul>";
+            new_menu += "</li>";
+        });
+        archive_wrapper.empty().append(new_menu);
+    }
+
+
+    /* Correspondents & Journalists Directory */
+
+    $('#cj_table').removeClass('list_table').removeClass('tablesorter').removeClass('stacktable').removeClass('small-only');
+    $('#cj_table td').removeClass('dialog');
+
+    // $('#cj_table td:nth-child(11)').each(function() {
+    //     if($(this).text().match(/^http|www/)) {
+    //         var url = $(this).text();
+    //         $(this).empty().append('<a>WWW</a>');
+    //         $(this).find('a').attr('href', url).addClass('website-link');
+    //     }
+    // });  
+    // $('#cj_table td:nth-child(12)').each(function() {
+    //     if($(this).text().match(/^http|www/)) {
+    //         var url = $(this).text();
+    //         $(this).empty().append('<a>LinkedIn</a>');
+    //         $(this).find('a').attr('href', url).addClass('linkedin-link');
+    //     }
+    // }); 
+
+    // load data tables for journalist directory: http://www.fcchk.org/correspondents-journalists-directory/
+    $('#cj_table').addClass('display').addClass('nowrap').DataTable({
+        // rowReorder: {
+        //     selector: 'td:nth-child(2)'
+        // },
+        // "autoWidth": false,
+        responsive: true,
+        columnDefs: [
+            // { width: 100, targets: 0 },
+            { responsivePriority: 1, targets: 0 },
+            { responsivePriority: 2, targets: 2 },
+            { responsivePriority: 3, targets: 3 }
+            // { responsivePriority: 4, targets: 8 },
+            // { responsivePriority: 5, targets: 9 },
+            // { responsivePriority: 6, targets: 7 },
+        ]
+    });
 
 
 
 
+    /**
+     * Search Box
+     */
+    
+    // Search
+    $('#search-button').toggle(
+        function() {
+            $("div.fcc-searchbox").addClass("fcc-searchbox-show");
+            setTimeout(function() { $("#fcc-searchbox-search-input").focus(); }, 1000);
+        },
+        function() {
+            $("div.fcc-searchbox").removeClass("fcc-searchbox-show");
+        }
+    );
+
+    $("#fcc-searchbox-search-input").on('focus',function() {
+        console.log('we have got focus');
+    });
+        
+    $("a.fcc-searchbox-close").click(function() {
+        $("div.fcc-searchbox").removeClass("fcc-searchbox-show");
+    });
+
+
+    /**
+     * Program created by Ryan Tarson Updated 6.15.16, under this code is my pure JS Version
+     * https://codepen.io/RTarson/pen/dMZMRx
+     */
+
+    // var wHeight = window.innerHeight;
+    // //search bar middle alignment
+    // $('#mk-searchbox-searchform').css('top', wHeight / 2);
+    // //reform search bar
+    // jQuery(window).resize(function() {
+    //     wHeight = window.innerHeight;
+    //     $('#mk-searchbox-searchform').css('top', wHeight / 2);
+    // });
 
 
 
-
-
-
-
-
+    // $(document).keypress(function(e) {
+    //   console.log(e.keyCode);
+    //   if (e.keyCode == 27) {
+    //     $("div.mk-fullscreen-search-overlay").removeClass("mk-fullscreen-search-overlay-show");
+    //   }
+    // });
 
 
 });

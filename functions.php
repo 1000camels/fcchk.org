@@ -1,7 +1,26 @@
 <?php
-add_action('wp_enqueue_scripts', 'bc_scripts'); // We are using the wp_enqueue_scripts function, and giving our function an arbitrary name of add_my_scripts
- 
-function bc_scripts() {
+
+/**
+ * Load Styles
+ */
+function fcc_enqueue_styles() {
+    wp_enqueue_style( 'main', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'main', 'theme' ) );
+
+    //wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . 'toolset-bootstrap/style.css' );
+
+    wp_enqueue_style( 'owl_slide-style', get_bloginfo('stylesheet_directory') . '/css/owl.carousel.css' );
+    wp_enqueue_style( 'owl_slide-theme-style', get_bloginfo('stylesheet_directory') . '/css/owl.theme.default.css' );
+
+    wp_enqueue_style( 'data_tables_parent-style', '//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css' );
+    wp_enqueue_style( 'data_tables_responsive_parent-style', '//cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css' );
+}
+add_action( 'wp_enqueue_scripts', 'fcc_enqueue_styles' );
+
+/**
+ * Load Scripts
+ */
+function fcc_enqueue_scripts() {
 	//wp_register_script('cufon', get_bloginfo('stylesheet_directory') . '/js/cufon-yui.js');
     //wp_enqueue_script('cufon');
     //wp_register_script('my_font', get_bloginfo('stylesheet_directory') . '/js/my.font.js');
@@ -12,8 +31,8 @@ function bc_scripts() {
     /*wp_register_script('restable', get_bloginfo('stylesheet_directory') . '/js/jquery.restable.js');
     wp_enqueue_script('restable');*/
 
-    wp_register_script('stacktable', get_bloginfo('stylesheet_directory') . '/js/stacktable.js');
-    wp_enqueue_script('stacktable');
+    // wp_register_script('stacktable', get_bloginfo('stylesheet_directory') . '/js/stacktable.js');
+    // wp_enqueue_script('stacktable');
 
     wp_register_script('owl_slide', get_bloginfo('stylesheet_directory') . '/js/owl.carousel.js');
     wp_enqueue_script('owl_slide');
@@ -21,15 +40,28 @@ function bc_scripts() {
     wp_register_script('galleria', get_bloginfo('stylesheet_directory') . '/js/galleria-1.4.2.js');
     wp_enqueue_script('galleria');
 
-    wp_register_script('table_sort', get_bloginfo('stylesheet_directory') . '/js/jquery.tablesorter.js');
-    wp_enqueue_script('table_sort');
+    // wp_register_script('table_sort', get_bloginfo('stylesheet_directory') . '/js/jquery.tablesorter.js');
+    // wp_enqueue_script('table_sort');
 
     wp_register_script('jPaginate', get_bloginfo('stylesheet_directory') . '/js/jPaginate.js');
     wp_enqueue_script('jPaginate');
 
-    wp_register_script('uitablefilter', get_bloginfo('stylesheet_directory') . '/js/jquery.uitablefilter.js');
-    wp_enqueue_script('uitablefilter');
+    // wp_register_script('uitablefilter', get_bloginfo('stylesheet_directory') . '/js/jquery.uitablefilter.js');
+    // wp_enqueue_script('uitablefilter');
+
+    // Data Tables - for Journalist Directory
+    wp_register_script('data_tables', '//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js');
+    wp_enqueue_script('data_tables');
+    wp_register_script('data_tables_reorder', '//cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js');
+    wp_enqueue_script('data_tables_reorder');
+    wp_register_script('data_tables_responsive', '//cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js');
+    wp_enqueue_script('data_tables_responsive');
 }
+add_action('wp_enqueue_scripts', 'fcc_enqueue_scripts');
+
+
+add_theme_support( 'html5', array( 'gallery', 'caption' ) );
+
     
 // Add user id CSS class via http://codex.wordpress.org/Function_Reference/body_class
 // add_filter( 'body_class', 'my_class_names' );
@@ -221,3 +253,29 @@ function wpbootstrap_gallery($content, $attr) {
     return $output;
 }
 add_filter('post_gallery', 'wpbootstrap_gallery', 100, 2);
+
+/**
+ * Make WP Captions responsive
+ */
+function dap_responsive_img_caption_filter( $val, $attr, $content = null ) {
+    extract( shortcode_atts( array(
+        'id' => '',
+        'align' => '',
+        'width' => '',
+        'caption' => ''
+        ), $attr
+    ) );
+    
+    if ( 1 > (int) $width || empty( $caption ) )
+        return $val;
+
+    $new_caption = sprintf( '<div id="%1$s" class="wp-caption %2$s" style="max-width:100%% !important;height:auto;width:%3$dpx;">%4$s<p class="wp-caption-text">%5$s</p></div>',
+        esc_attr( $id ),
+        esc_attr( $align ),
+        ( 10 + (int) $width ),
+        do_shortcode( $content ),
+        $caption
+    );
+    return $new_caption;
+}
+//add_filter( 'img_caption_shortcode', 'dap_responsive_img_caption_filter', 10, 3 );
